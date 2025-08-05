@@ -1,130 +1,60 @@
-Network Intrusion Detection System (NIDS) using Machine Learning and IBM Cloud Lite
-📖 Overview
-This project implements a robust Network Intrusion Detection System (NIDS) using machine learning, based on a public intrusion detection dataset. The goal is to analyze network traffic and identify various cyber-attacks (DoS, Probe, R2L, U2R) as well as normal activity. The solution leverages IBM Cloud Lite services for model development and scalable deployment.
+# 🚧 Intelligent Classification of Rural Infrastructure Projects (PMGSY)
 
-🚩 Problem Statement
-Modern networks are highly vulnerable to attacks such as:
+> A machine learning project built using IBM Watsonx.ai & AutoAI to classify infrastructure projects under the correct PMGSY scheme.
 
-Denial of Service (DoS)
+---
 
-Probing/Scanning (Probe)
+## 📌 Problem Statement
 
-Remote to Local (R2L)
+The **Pradhan Mantri Gram Sadak Yojana (PMGSY)** is a rural development program by the Indian government aimed at providing all-weather road connectivity to unconnected habitations.
 
-User to Root (U2R)
+Manual classification of projects into schemes like **PMGSY-I**, **PMGSY-II**, **RCPLWEA**, etc. is time-consuming, error-prone, and non-scalable.
 
-Swift detection of these threats is critical to protect users and infrastructure. Manual monitoring is impractical at scale. This project aims to develop an automated, ML-based system to accurately classify network traffic and support proactive defense.
+### ✅ Objective
 
-💡 Proposed Solution
-Data Collection: kaggle.com/datasets/sampadab17/networkintrusion-detection
+To build an **intelligent ML model** that can automatically classify a project into the correct scheme based on **financial and physical parameters**.
 
-Preprocessing: Cleanses data, encodes features, and normalizes inputs.
+---
 
-Model Training: Uses Random Forest/AutoAI with IBM Watson Studio.
+## 💡 Proposed Solution
 
-Deployment: Deploys ML model as an API on IBM Cloud via Watson Machine Learning.
+- Used **IBM Watsonx.ai AutoAI** to train multiple ML models automatically.
+- Data was cleaned and preprocessed using built-in tools.
+- The best model (based on accuracy) was **XGBoost Classifier**.
+- Model was deployed as a **REST API** using IBM Cloud.
 
-Evaluation: Measures detection performance with classification metrics (accuracy, F1, etc.).
+---
 
-🛠️ Technology Stack
-Cloud: IBM Cloud Lite, IBM Watson Studio, Watson Machine Learning, Cloud Object Storage
+## 🔧 Technologies Used
 
-Languages: Python
+| Component        | Tech Stack                        |
+|------------------|-----------------------------------|
+| Data Source      | AI Kosh - PMGSY Dataset           |
+| Platform         | IBM Watsonx.ai (Cloud-based)      |
+| ML Pipeline      | IBM AutoAI                        |
+| ML Libraries     | `scikit-learn`, `autoai-libs`, `ibm-watsonx-ai`, `pandas` |
+| Deployment       | IBM Cloud - Watsonx Online API    |
 
-Libraries: pandas, numpy, scikit-learn, joblib, matplotlib/seaborn, ibm-watson-machine-learning
+---
 
-ML Approach: Random Forest/AutoAI (multi-class classification)
+## 🧪 Algorithm & Deployment
 
-API: REST (for real-time/batch inference)
+- AutoAI tried several classification models like:
+  - Logistic Regression
+  - Decision Trees
+  - XGBoost (selected for best accuracy)
+- Inputs:
+  - `STATE_NAME`, `DISTRICT_NAME`, `LENGTH_OF_ROAD_WORK_SANCTIONED`, `COST_OF_WORKS_SANCTIONED`, etc.
+- AutoAI handled:
+  - Feature engineering
+  - Model selection
+  - Hyperparameter tuning
+  - Evaluation
+- Final model deployed as a **RESTful service** (Web API).
 
-🚀 Getting Started
-1. Prerequisites
-IBM Cloud Lite Account
+---
 
-IBM Watson Studio & Machine Learning Instance
+## 📊 Results
 
-Python (recommended: 3.8+)
+The model achieved high accuracy in correctly classifying the project schemes. IBM AutoAI generated the pipeline and deployment automatically. Below is an example of the deployed prediction:
 
-Kaggle account for dataset download
-
-2. Project Setup
-Clone this repository:
-
-bash
-git clone https://github.com/yourusername/nids-ibmcloud.git
-cd nids-ibmcloud
-Install Python dependencies:
-
-bash
-pip install -r requirements.txt
-Or install individually:
-pip install pandas numpy scikit-learn matplotlib seaborn ibm-watson-machine-learning
-
-Set up IBM Cloud services:
-
-Provision Watson Studio, Watson Machine Learning, and Cloud Object Storage.
-
-Upload the Kaggle dataset to object storage.
-
-Open Jupyter Notebook / Watson Studio Project:
-
-Upload and run the notebook script for data preparation, training, and evaluation.
-
-Alternatively, use Watson Studio's AutoAI for automated modeling.
-
-Model Deployment:
-
-Serialize and deploy the best-performing model to Watson Machine Learning.
-
-Deploy as a REST API and test using provided sample scripts.
-
-🧑💻 Project Structure
-text
-.
-├── data/                   # Data files (do not upload sensitive data)
-├── notebooks/              # Jupyter notebooks for experiments and modeling
-├── src/                    # Python scripts (data prep, training, inference)
-├── requirements.txt        # Python dependencies
-├── README.md               # This file
-└── LICENSE                 # Project license (MIT recommended)
-📊 Results & Visuals
-Model accuracy: [insert acc/F1 from your best run]
-
-Classification report & confusion matrix:
-[Include output screenshot images in the repo/README if possible]
-
-Sample API response:
-[Show example input & REST API predicted output]
-
-📝 Conclusion
-This project demonstrates a powerful, scalable, and automated approach to network threat detection using machine learning and IBM Cloud services. The deployed model can alert network admins to threats in real time, improving overall security.
-
-🔭 Future Work
-Integrate with real-time traffic data streams
-
-Explore deep learning architectures
-
-Add automated model retraining
-
-Enhance with explainable AI for feature attribution
-
-Deploy at network/edge for low-latency detection
-
-📚 References
-Kaggle Network Intrusion Detection Dataset
-
-IBM Cloud Watson Studio Documentation
-
-scikit-learn User Guide
-
-Key research papers on ML-based intrusion detection
-
-🏅 IBM Certifications
-Getting Started with Artificial Intelligence (IBM SkillsBuild)
-
-Journey to Cloud: Envisioning Your Solution (IBM SkillsBuild)
-
-Retrieval-Augmented Generation with LangChain (IBM SkillsBuild)
-
-🙏 Acknowledgments
-Thanks to IBM, Kaggle, and all open-source contributors for resources and tools enabling this project.
